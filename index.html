@@ -59,7 +59,12 @@
     display: flex; align-items: center; gap: 12px;
     text-decoration: none;
   }
-  .nav-logo img { height: 42px; width: 42px; object-fit: contain; filter: brightness(0) invert(1); }
+  .nav-logo img { 
+    height: 42px; 
+    width: 42px; 
+    object-fit: contain; 
+    filter: brightness(0) invert(1);
+  }
   .nav-brand {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem; font-weight: 700;
@@ -608,7 +613,7 @@
     border-top: 1px solid rgba(200,150,12,.12);
   }
   .footer-left { display: flex; align-items: center; gap: 1rem; }
-  .footer-left img { height: 36px; filter: brightness(0) invert(1); opacity: .5; }
+  .footer-left img { height: 36px; object-fit: contain; filter: brightness(0) invert(1); opacity: .7; }
   .footer-brand {
     font-family: 'Playfair Display', serif;
     font-size: .95rem; color: rgba(250,246,240,.4);
@@ -652,7 +657,8 @@
 <!-- ── NAV ──────────────────────────────────────────────────────── -->
 <nav>
   <a class="nav-logo" href="#">
-    <img src="logo_ayoolys.png" alt="Ayooly's Center">
+    <!-- Logo Ayooly's Center -->
+    <img src="logo_ayoolys.png" alt="Ayooly's Center Logo">
     <div class="nav-brand">
       Ayooly's Center
       <span>Porto-Novo · Bénin</span>
