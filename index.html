@@ -59,14 +59,7 @@
     display: flex; align-items: center; gap: 12px;
     text-decoration: none;
   }
-  .nav-logo img { 
-    height: 48px; 
-    width: 48px; 
-    object-fit: contain; 
-    background: #ffffff;
-    border-radius: 50%;
-    padding: 2px;
-  }
+  .nav-logo img { height: 42px; width: 42px; object-fit: contain; filter: brightness(0) invert(1); }
   .nav-brand {
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem; font-weight: 700;
@@ -128,13 +121,10 @@
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 2.5rem;
-    overflow: hidden;
   }
   .hero-logo-wrap img {
-    width: 100px; height: 100px; object-fit: contain;
-    background: #ffffff;
-    border-radius: 50%;
-    padding: 4px;
+    width: 90px; height: 90px; object-fit: contain;
+    filter: brightness(0) invert(1);
   }
 
   .hero-eyebrow {
@@ -291,6 +281,324 @@
   }
   .pillar-desc { font-size: .875rem; color: #5A2D10; line-height: 1.6; }
 
+  /* ─── SECTION ACTIVITÉS ─────────────────────────────────────── */
+  #activites {
+    background: var(--brown-deep);
+    padding: 100px 5%;
+    position: relative; overflow: hidden;
+  }
+  #activites .hero-texture { opacity: .05; }
+
+  .section-header {
+    max-width: 1200px; margin: 0 auto 3.5rem;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .section-header .section-label { color: var(--gold-light); }
+  .section-header .section-title { color: var(--cream); margin-bottom: 0; }
+  .section-header .section-title em { color: var(--gold); }
+
+  .cards-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+    background: rgba(200,150,12,.15);
+  }
+
+  .act-card {
+    background: #250E04;
+    padding: 2.5rem 2rem;
+    transition: background .25s;
+    position: relative; overflow: hidden;
+  }
+  .act-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: var(--gold);
+    transition: width .35s ease;
+  }
+  .act-card:hover { background: #2E1106; }
+  .act-card:hover::after { width: 100%; }
+
+  .act-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; line-height: 1;
+    color: rgba(200,150,12,.18); margin-bottom: 1rem;
+    display: block;
+  }
+  .act-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+  .act-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--cream); margin-bottom: .75rem;
+  }
+  .act-desc { font-size: .875rem; color: rgba(250,246,240,.55); line-height: 1.7; margin-bottom: 1.25rem; }
+  .act-price {
+    font-size: .8rem; letter-spacing: .08em;
+    color: var(--gold); font-weight: 600;
+  }
+
+  /* ─── SILVER ACADEMY ────────────────────────────────────────── */
+  #silver {
+    background: var(--cream);
+    padding: 100px 5%;
+    position: relative;
+  }
+
+  .silver-wrap {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 5fr 7fr; gap: 80px;
+    align-items: center;
+  }
+
+  .silver-visual {
+    background: var(--brown-deep);
+    padding: 3rem 2.5rem;
+    position: relative;
+  }
+  .silver-visual::before {
+    content: ''; position: absolute;
+    top: -8px; left: -8px; right: 8px; bottom: 8px;
+    border: 1px solid var(--gold);
+    z-index: 0;
+  }
+  .silver-headline {
+    position: relative; z-index: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: .5rem;
+  }
+  .silver-sub {
+    position: relative; z-index: 1;
+    font-size: .8rem; letter-spacing: .15em; text-transform: uppercase;
+    color: rgba(250,246,240,.5);
+  }
+  .silver-divider {
+    width: 48px; height: 2px; background: var(--gold);
+    margin: 1.5rem 0; position: relative; z-index: 1;
+  }
+  .silver-quote {
+    position: relative; z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.1rem;
+    color: rgba(250,246,240,.65); line-height: 1.6;
+  }
+
+  .silver-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .step {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+  }
+  .step-badge {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--gold);
+  }
+  .step-body {}
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.05rem;
+    color: var(--brown-deep); margin-bottom: .35rem;
+  }
+  .step-desc { font-size: .875rem; line-height: 1.65; color: #4A2010; }
+
+  .earn-box {
+    background: var(--brown-deep); color: var(--cream);
+    padding: 1.5rem 2rem; margin-top: 2rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .earn-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900; color: var(--gold);
+    white-space: nowrap;
+  }
+  .earn-label { font-size: .875rem; line-height: 1.5; color: rgba(250,246,240,.65); }
+
+  /* ─── BIG QUOTE ─────────────────────────────────────────────── */
+  #quote-break {
+    background: var(--brown-rich);
+    padding: 80px 5%;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #quote-break .hero-texture { opacity: .07; }
+
+  .big-quote {
+    max-width: 900px; margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.3;
+    color: var(--cream); position: relative; z-index: 1;
+  }
+  .big-quote span { color: var(--gold); }
+  .big-quote-attr {
+    margin-top: 2rem;
+    font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+    color: rgba(250,246,240,.4); position: relative; z-index: 1;
+  }
+
+  /* ─── TARIFS ────────────────────────────────────────────────── */
+  #tarifs {
+    background: var(--cream-dark);
+    padding: 100px 5%;
+  }
+
+  .tarifs-header { max-width: 1200px; margin: 0 auto 3rem; }
+
+  .tarifs-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  }
+
+  .tarif-card {
+    background: var(--white); padding: 2rem 1.5rem;
+    border-top: 3px solid var(--cream-dark);
+    transition: border-color .2s, transform .2s;
+    position: relative;
+  }
+  .tarif-card:hover { border-top-color: var(--gold); transform: translateY(-4px); }
+  .tarif-card.featured {
+    background: var(--brown-deep); border-top-color: var(--gold);
+  }
+  .tarif-card.featured .tarif-name { color: var(--gold-light); }
+  .tarif-card.featured .tarif-price { color: var(--cream); }
+  .tarif-card.featured .tarif-unit { color: rgba(250,246,240,.45); }
+  .tarif-card.featured .tarif-items li { color: rgba(250,246,240,.65); }
+  .tarif-card.featured .tarif-items li::before { color: var(--gold); }
+  .tarif-card.featured .tarif-note { color: rgba(250,246,240,.4); }
+
+  .tarif-badge {
+    position: absolute; top: -1px; right: 1.5rem;
+    background: var(--gold); color: var(--black);
+    font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+    padding: .25rem .6rem; text-transform: uppercase;
+  }
+  .tarif-name {
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--brown-mid); font-weight: 600; margin-bottom: 1rem;
+  }
+  .tarif-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem; font-weight: 900; color: var(--brown-deep);
+    line-height: 1;
+  }
+  .tarif-unit { font-size: .75rem; color: #8B5A3A; margin-bottom: 1.5rem; }
+  .tarif-divider { width: 32px; height: 1px; background: var(--gold); margin: 1rem 0; }
+  .tarif-items { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+  .tarif-items li { font-size: .85rem; color: #4A2010; padding-left: 1.25rem; position: relative; }
+  .tarif-items li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: .55rem; top: .2em; }
+  .tarif-note { font-size: .75rem; color: #9A7060; font-style: italic; }
+
+  /* ─── AGENDA SEMAINE ────────────────────────────────────────── */
+  #agenda {
+    background: var(--brown-deep);
+    padding: 100px 5%;
+  }
+
+  .agenda-wrap { max-width: 1200px; margin: 0 auto; }
+  .agenda-days {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5px;
+    background: rgba(200,150,12,.12); margin-top: 3rem;
+  }
+  .day-col { background: #1E0A02; }
+  .day-head {
+    background: var(--brown-rich);
+    padding: .75rem; text-align: center;
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .day-slots { padding: .75rem; display: flex; flex-direction: column; gap: .5rem; }
+  .slot {
+    padding: .6rem .75rem;
+    font-size: .75rem; line-height: 1.4;
+  }
+  .slot-time { color: var(--gold); font-size: .65rem; letter-spacing: .06em; display: block; margin-bottom: .2rem; }
+  .slot-name { color: rgba(250,246,240,.75); }
+  .slot-public { color: rgba(250,246,240,.35); font-size: .65rem; }
+  .slot.type-decouverte { border-left: 2px solid #C8960C; background: rgba(200,150,12,.06); }
+  .slot.type-approfondissement { border-left: 2px solid #8B4513; background: rgba(139,69,19,.1); }
+  .slot.type-alpha { border-left: 2px solid #5C8A3C; background: rgba(92,138,60,.08); }
+  .slot.type-silver { border-left: 2px solid #C0A060; background: rgba(192,160,96,.07); }
+  .slot.type-coworking { border-left: 2px solid #3C6A8A; background: rgba(60,106,138,.08); }
+  .slot.type-culture { border-left: 2px solid #8A3C6A; background: rgba(138,60,106,.08); }
+
+  .agenda-legend {
+    display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem;
+  }
+  .legend-item { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: rgba(250,246,240,.45); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ─── TÉMOIGNAGES ───────────────────────────────────────────── */
+  #temoignages {
+    background: var(--cream); padding: 100px 5%;
+  }
+
+  .temos-grid {
+    max-width: 1200px; margin: 3rem auto 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+
+  .temo {
+    padding: 2rem; background: var(--cream-dark);
+    position: relative;
+  }
+  .temo::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; color: var(--gold); opacity: .2;
+    position: absolute; top: -.5rem; left: 1rem; line-height: 1;
+  }
+  .temo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.05rem; line-height: 1.65;
+    color: var(--brown-deep); margin-bottom: 1.5rem;
+  }
+  .temo-author { display: flex; align-items: center; gap: .75rem; }
+  .temo-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--gold);
+    flex-shrink: 0;
+  }
+  .temo-name { font-weight: 600; font-size: .875rem; color: var(--brown-deep); }
+  .temo-role { font-size: .75rem; color: #8B5A3A; }
+
+  /* ─── CTA FINAL ─────────────────────────────────────────────── */
+  #cta-final {
+    background: var(--brown-deep);
+    padding: 120px 5%;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #cta-final .hero-texture { opacity: .06; }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900; color: var(--cream);
+    line-height: 1.15; margin-bottom: 1rem;
+    position: relative; z-index: 1;
+  }
+  .cta-title em { color: var(--gold); font-style: italic; }
+  .cta-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.2rem;
+    color: rgba(250,246,240,.5); margin-bottom: 2.5rem;
+    position: relative; z-index: 1;
+  }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+  .cta-contact {
+    margin-top: 3rem; position: relative; z-index: 1;
+    display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
+  }
+  .contact-item { text-align: center; }
+  .contact-label { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .25rem; }
+  .contact-value { font-size: 1rem; color: rgba(250,246,240,.7); }
+
   /* ─── FOOTER ────────────────────────────────────────────────── */
   footer {
     background: var(--black);
@@ -300,14 +608,7 @@
     border-top: 1px solid rgba(200,150,12,.12);
   }
   .footer-left { display: flex; align-items: center; gap: 1rem; }
-  .footer-left img { 
-    height: 40px; 
-    width: 40px;
-    object-fit: contain; 
-    background: #ffffff;
-    border-radius: 50%;
-    padding: 2px;
-  }
+  .footer-left img { height: 36px; filter: brightness(0) invert(1); opacity: .5; }
   .footer-brand {
     font-family: 'Playfair Display', serif;
     font-size: .95rem; color: rgba(250,246,240,.4);
@@ -321,14 +622,28 @@
 
   /* ─── SCROLL ANIMATIONS ─────────────────────────────────────── */
   .reveal {
-    opacity: 1; transform: translateY(0);
+    opacity: 0; transform: translateY(28px);
     transition: opacity .65s ease, transform .65s ease;
   }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ─── RESPONSIVE ─────────────────────────────────────────────── */
   @media (max-width: 900px) {
     .nav-links { display: none; }
-    .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .intro-grid, .silver-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .tarifs-grid { grid-template-columns: 1fr 1fr; }
+    .agenda-days { grid-template-columns: 1fr 1fr; }
+    .temos-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .tarifs-grid { grid-template-columns: 1fr; }
+    .agenda-days { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+    * { transition: none !important; }
   }
 </style>
 </head>
@@ -337,7 +652,7 @@
 <!-- ── NAV ──────────────────────────────────────────────────────── -->
 <nav>
   <a class="nav-logo" href="#">
-    <img src="logoayoolys.jpg" alt="Ayooly's Center Logo">
+    <!--<img src="logoayoolys.jpg" alt="Ayooly's Center Logo">-->
     <div class="nav-brand">
       Ayooly's Center
       <span>Porto-Novo · Bénin</span>
@@ -351,6 +666,51 @@
     <li><a href="#cta-final" class="nav-cta">Nous rejoindre</a></li>
   </ul>
 </nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-texture"></div>
+
+  <div class="hero-logo-wrap reveal">
+     <!--<<img src="logoayoolys.jpg" alt="Ayooly's Center Logo">-->
+  </div>
+
+  <p class="hero-eyebrow reveal">Porto-Novo · Bénin · Tiers-Lieu Intergénérationnel</p>
+
+  <h1 class="hero-title reveal">
+    Là où chaque<br><em>génération</em><br>trouve sa place.
+  </h1>
+
+  <p class="hero-sub reveal">
+    Savoir pour mieux se positionner — Fabricando fit faber
+  </p>
+
+  <div class="hero-btns reveal">
+    <a href="#activites" class="btn-primary">Découvrir le Hub</a>
+    <a href="#tarifs" class="btn-outline">Voir les tarifs</a>
+  </div>
+
+  <div class="hero-stats reveal">
+    <div class="stat">
+      <span class="stat-num">300+</span>
+      <span class="stat-label">Bénéficiaires / an</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Publics accueillis</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">15k</span>
+      <span class="stat-label">FCFA / atelier</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Autonome</span>
+    </div>
+  </div>
+
+  <div class="hero-bottom-bar">Retraités · Étudiants · Actifs · Entrepreneurs</div>
+</section>
 
 <div class="african-divider"></div>
 
@@ -782,19 +1142,38 @@
   </div>
 </section>
 
-<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-left">
-    <img src="logoayoolys.jpg" alt="Ayooly's Center Logo">
+    <img src="logo_ayoolys.png" alt="Ayooly's">
     <div>
-      <div class="footer-brand">Ayooly's Center</div>
-      <div class="footer-motto">Savoir pour mieux se positionner</div>
+      <p class="footer-brand">Ayooly's Center</p>
+      <p class="footer-motto">Savoir pour mieux se positionner</p>
     </div>
   </div>
-  <div class="footer-right">
-    &copy; Ayooly's Center. Tous droits réservés.
-  </div>
+  <p class="footer-right">© 2026 Ayooly's Center · Wellness Center · Porto-Novo, Bénin</p>
 </footer>
 
+<!-- ── SCROLL REVEAL SCRIPT ──────────────────────────────────────── -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(13, 6, 4, 0.98)'
+      : 'rgba(30, 10, 2, 0.96)';
+  });
+</script>
 </body>
 </html>
