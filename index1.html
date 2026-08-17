@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayooly's Center — Savoir pour mieux se positionner</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown-deep:   #1E0A02;
+    --brown-rich:   #5C2206;
+    --brown-mid:    #8B4513;
+    --brown-light:  #C17F3D;
+    --gold:         #C8960C;
+    --gold-light:   #E8B84B;
+    --black:        #0D0604;
+    --white:        #FFFFFF;
+    --cream:        #FAF6F0;
+    --cream-dark:   #F0E8DC;
+    --text-on-dark: #FAF6F0;
+    --text-on-light:#1E0A02;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-on-light);
+    overflow-x: hidden;
+  }
+
+  /* ─── PATTERN AFRICAIN SVG ──────────────────────────────────── */
+  .african-divider {
+    width: 100%;
+    height: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='28'%3E%3Crect width='60' height='28' fill='%235C2206'/%3E%3Cpolygon points='0,14 7,0 14,14 7,28' fill='%23C8960C' opacity='.7'/%3E%3Cpolygon points='30,14 37,0 44,14 37,28' fill='%23C8960C' opacity='.7'/%3E%3Crect x='14' y='11' width='16' height='6' fill='%23FAF6F0' opacity='.15'/%3E%3Crect x='44' y='11' width='16' height='6' fill='%23FAF6F0' opacity='.15'/%3E%3Cline x1='0' y1='0' x2='60' y2='0' stroke='%23E8B84B' stroke-width='1.5'/%3E%3Cline x1='0' y1='28' x2='60' y2='28' stroke='%23E8B84B' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+  }
+
+  .african-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='none'/%3E%3Crect x='0' y='0' width='20' height='20' fill='%23C8960C' opacity='.04'/%3E%3Crect x='20' y='20' width='20' height='20' fill='%23C8960C' opacity='.04'/%3E%3Cline x1='0' y1='20' x2='40' y2='20' stroke='%235C2206' stroke-width='.5' opacity='.08'/%3E%3Cline x1='20' y1='0' x2='20' y2='40' stroke='%235C2206' stroke-width='.5' opacity='.08'/%3E%3C/svg%3E");
+  }
+
+  /* ─── NAV ───────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 72px;
+    background: rgba(30, 10, 2, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200, 150, 12, 0.2);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo img { height: 42px; width: 42px; object-fit: contain; filter: brightness(0) invert(1); }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+  .nav-brand span { color: var(--gold); font-size: .75rem; font-weight: 400; display: block; letter-spacing: .08em; }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: .875rem; font-weight: 500; letter-spacing: .04em;
+    color: rgba(250, 246, 240, .75);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold); color: var(--black) !important;
+    padding: .5rem 1.25rem; border-radius: 2px;
+    font-weight: 600 !important;
+    transition: background .2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+  /* ─── HERO ──────────────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    background: var(--brown-deep);
+    position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 120px 5% 80px;
+  }
+
+  .hero-texture {
+    position: absolute; inset: 0; opacity: .06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpolygon points='40,0 80,40 40,80 0,40' fill='%23C8960C'/%3E%3Cpolygon points='40,20 60,40 40,60 20,40' fill='%23FAF6F0'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  .hero-arc {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .8rem; letter-spacing: .2em; color: var(--gold);
+    opacity: .6; white-space: nowrap;
+    margin-top: 88px;
+  }
+
+  .hero-logo-wrap {
+    position: relative; z-index: 2;
+    width: 140px; height: 140px;
+    background: rgba(250,246,240,.06);
+    border: 1px solid rgba(200,150,12,.25);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .hero-logo-wrap img {
+    width: 90px; height: 90px; object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .hero-eyebrow {
+    position: relative; z-index: 2;
+    font-size: .75rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    position: relative; z-index: 2;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 900; line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--gold);
+  }
+
+  .hero-sub {
+    position: relative; z-index: 2;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.25rem;
+    color: rgba(250,246,240,.65);
+    margin-bottom: 2.5rem;
+    letter-spacing: .04em;
+  }
+
+  .hero-btns {
+    position: relative; z-index: 2;
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--gold); color: var(--black);
+    padding: .9rem 2.2rem; font-weight: 600; font-size: .95rem;
+    border: none; cursor: pointer; letter-spacing: .04em;
+    text-decoration: none; display: inline-block;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    padding: .9rem 2.2rem; font-weight: 500; font-size: .95rem;
+    border: 1px solid rgba(250,246,240,.35); cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: border-color .2s, color .2s, transform .15s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-stats {
+    position: relative; z-index: 2;
+    display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 700; color: var(--gold);
+    display: block; line-height: 1;
+  }
+  .stat-label {
+    font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(250,246,240,.5); margin-top: .4rem;
+  }
+
+  .hero-bottom-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: center;
+    gap: 2rem; padding: 1rem 5%;
+    border-top: 1px solid rgba(200,150,12,.15);
+    font-size: .75rem; letter-spacing: .1em; color: rgba(250,246,240,.3);
+    text-transform: uppercase;
+  }
+  .hero-bottom-bar::before, .hero-bottom-bar::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(200,150,12,.15);
+  }
+
+  /* ─── SECTION INTRO ─────────────────────────────────────────── */
+  #intro {
+    background: var(--cream);
+    padding: 100px 5%;
+    position: relative;
+  }
+
+  .intro-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+
+  .section-label {
+    font-size: .7rem; letter-spacing: .25em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+    display: flex; align-items: center; gap: .75rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-label::before {
+    content: ''; width: 32px; height: 2px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--brown-deep); margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--brown-mid); }
+
+  .section-body {
+    font-size: 1.0625rem; line-height: 1.8;
+    color: #3D1A07; margin-bottom: 1.5rem;
+  }
+
+  .motto-card {
+    background: var(--brown-deep);
+    padding: 2.5rem; position: relative; overflow: hidden;
+  }
+  .motto-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem; color: var(--gold); opacity: .15;
+    position: absolute; top: -1rem; left: 1rem; line-height: 1;
+  }
+  .motto-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.4rem; line-height: 1.6;
+    color: var(--cream); position: relative; z-index: 1;
+  }
+  .motto-author {
+    font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); margin-top: 1rem; position: relative; z-index: 1;
+  }
+
+  .pillars {
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+  .pillar {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.25rem; background: var(--cream-dark);
+    border-left: 3px solid var(--gold);
+  }
+  .pillar-icon {
+    width: 40px; height: 40px; background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1.1rem;
+  }
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1rem; margin-bottom: .3rem;
+    color: var(--brown-deep);
+  }
+  .pillar-desc { font-size: .875rem; color: #5A2D10; line-height: 1.6; }
+
+  /* ─── SECTION ACTIVITÉS ─────────────────────────────────────── */
+  #activites {
+    background: var(--brown-deep);
+    padding: 100px 5%;
+    position: relative; overflow: hidden;
+  }
+  #activites .hero-texture { opacity: .05; }
+
+  .section-header {
+    max-width: 1200px; margin: 0 auto 3.5rem;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .section-header .section-label { color: var(--gold-light); }
+  .section-header .section-title { color: var(--cream); margin-bottom: 0; }
+  .section-header .section-title em { color: var(--gold); }
+
+  .cards-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+    background: rgba(200,150,12,.15);
+  }
+
+  .act-card {
+    background: #250E04;
+    padding: 2.5rem 2rem;
+    transition: background .25s;
+    position: relative; overflow: hidden;
+  }
+  .act-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: var(--gold);
+    transition: width .35s ease;
+  }
+  .act-card:hover { background: #2E1106; }
+  .act-card:hover::after { width: 100%; }
+
+  .act-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; line-height: 1;
+    color: rgba(200,150,12,.18); margin-bottom: 1rem;
+    display: block;
+  }
+  .act-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+  .act-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--cream); margin-bottom: .75rem;
+  }
+  .act-desc { font-size: .875rem; color: rgba(250,246,240,.55); line-height: 1.7; margin-bottom: 1.25rem; }
+  .act-price {
+    font-size: .8rem; letter-spacing: .08em;
+    color: var(--gold); font-weight: 600;
+  }
+
+  /* ─── SILVER ACADEMY ────────────────────────────────────────── */
+  #silver {
+    background: var(--cream);
+    padding: 100px 5%;
+    position: relative;
+  }
+
+  .silver-wrap {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 5fr 7fr; gap: 80px;
+    align-items: center;
+  }
+
+  .silver-visual {
+    background: var(--brown-deep);
+    padding: 3rem 2.5rem;
+    position: relative;
+  }
+  .silver-visual::before {
+    content: ''; position: absolute;
+    top: -8px; left: -8px; right: 8px; bottom: 8px;
+    border: 1px solid var(--gold);
+    z-index: 0;
+  }
+  .silver-headline {
+    position: relative; z-index: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+    margin-bottom: .5rem;
+  }
+  .silver-sub {
+    position: relative; z-index: 1;
+    font-size: .8rem; letter-spacing: .15em; text-transform: uppercase;
+    color: rgba(250,246,240,.5);
+  }
+  .silver-divider {
+    width: 48px; height: 2px; background: var(--gold);
+    margin: 1.5rem 0; position: relative; z-index: 1;
+  }
+  .silver-quote {
+    position: relative; z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.1rem;
+    color: rgba(250,246,240,.65); line-height: 1.6;
+  }
+
+  .silver-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .step {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+  }
+  .step-badge {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--gold);
+  }
+  .step-body {}
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.05rem;
+    color: var(--brown-deep); margin-bottom: .35rem;
+  }
+  .step-desc { font-size: .875rem; line-height: 1.65; color: #4A2010; }
+
+  .earn-box {
+    background: var(--brown-deep); color: var(--cream);
+    padding: 1.5rem 2rem; margin-top: 2rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .earn-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900; color: var(--gold);
+    white-space: nowrap;
+  }
+  .earn-label { font-size: .875rem; line-height: 1.5; color: rgba(250,246,240,.65); }
+
+  /* ─── BIG QUOTE ─────────────────────────────────────────────── */
+  #quote-break {
+    background: var(--brown-rich);
+    padding: 80px 5%;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #quote-break .hero-texture { opacity: .07; }
+
+  .big-quote {
+    max-width: 900px; margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.3;
+    color: var(--cream); position: relative; z-index: 1;
+  }
+  .big-quote span { color: var(--gold); }
+  .big-quote-attr {
+    margin-top: 2rem;
+    font-size: .75rem; letter-spacing: .2em; text-transform: uppercase;
+    color: rgba(250,246,240,.4); position: relative; z-index: 1;
+  }
+
+  /* ─── TARIFS ────────────────────────────────────────────────── */
+  #tarifs {
+    background: var(--cream-dark);
+    padding: 100px 5%;
+  }
+
+  .tarifs-header { max-width: 1200px; margin: 0 auto 3rem; }
+
+  .tarifs-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  }
+
+  .tarif-card {
+    background: var(--white); padding: 2rem 1.5rem;
+    border-top: 3px solid var(--cream-dark);
+    transition: border-color .2s, transform .2s;
+    position: relative;
+  }
+  .tarif-card:hover { border-top-color: var(--gold); transform: translateY(-4px); }
+  .tarif-card.featured {
+    background: var(--brown-deep); border-top-color: var(--gold);
+  }
+  .tarif-card.featured .tarif-name { color: var(--gold-light); }
+  .tarif-card.featured .tarif-price { color: var(--cream); }
+  .tarif-card.featured .tarif-unit { color: rgba(250,246,240,.45); }
+  .tarif-card.featured .tarif-items li { color: rgba(250,246,240,.65); }
+  .tarif-card.featured .tarif-items li::before { color: var(--gold); }
+  .tarif-card.featured .tarif-note { color: rgba(250,246,240,.4); }
+
+  .tarif-badge {
+    position: absolute; top: -1px; right: 1.5rem;
+    background: var(--gold); color: var(--black);
+    font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+    padding: .25rem .6rem; text-transform: uppercase;
+  }
+  .tarif-name {
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--brown-mid); font-weight: 600; margin-bottom: 1rem;
+  }
+  .tarif-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem; font-weight: 900; color: var(--brown-deep);
+    line-height: 1;
+  }
+  .tarif-unit { font-size: .75rem; color: #8B5A3A; margin-bottom: 1.5rem; }
+  .tarif-divider { width: 32px; height: 1px; background: var(--gold); margin: 1rem 0; }
+  .tarif-items { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+  .tarif-items li { font-size: .85rem; color: #4A2010; padding-left: 1.25rem; position: relative; }
+  .tarif-items li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: .55rem; top: .2em; }
+  .tarif-note { font-size: .75rem; color: #9A7060; font-style: italic; }
+
+  /* ─── AGENDA SEMAINE ────────────────────────────────────────── */
+  #agenda {
+    background: var(--brown-deep);
+    padding: 100px 5%;
+  }
+
+  .agenda-wrap { max-width: 1200px; margin: 0 auto; }
+  .agenda-days {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5px;
+    background: rgba(200,150,12,.12); margin-top: 3rem;
+  }
+  .day-col { background: #1E0A02; }
+  .day-head {
+    background: var(--brown-rich);
+    padding: .75rem; text-align: center;
+    font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .day-slots { padding: .75rem; display: flex; flex-direction: column; gap: .5rem; }
+  .slot {
+    padding: .6rem .75rem;
+    font-size: .75rem; line-height: 1.4;
+  }
+  .slot-time { color: var(--gold); font-size: .65rem; letter-spacing: .06em; display: block; margin-bottom: .2rem; }
+  .slot-name { color: rgba(250,246,240,.75); }
+  .slot-public { color: rgba(250,246,240,.35); font-size: .65rem; }
+  .slot.type-decouverte { border-left: 2px solid #C8960C; background: rgba(200,150,12,.06); }
+  .slot.type-approfondissement { border-left: 2px solid #8B4513; background: rgba(139,69,19,.1); }
+  .slot.type-alpha { border-left: 2px solid #5C8A3C; background: rgba(92,138,60,.08); }
+  .slot.type-silver { border-left: 2px solid #C0A060; background: rgba(192,160,96,.07); }
+  .slot.type-coworking { border-left: 2px solid #3C6A8A; background: rgba(60,106,138,.08); }
+  .slot.type-culture { border-left: 2px solid #8A3C6A; background: rgba(138,60,106,.08); }
+
+  .agenda-legend {
+    display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem;
+  }
+  .legend-item { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: rgba(250,246,240,.45); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ─── TÉMOIGNAGES ───────────────────────────────────────────── */
+  #temoignages {
+    background: var(--cream); padding: 100px 5%;
+  }
+
+  .temos-grid {
+    max-width: 1200px; margin: 3rem auto 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+
+  .temo {
+    padding: 2rem; background: var(--cream-dark);
+    position: relative;
+  }
+  .temo::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; color: var(--gold); opacity: .2;
+    position: absolute; top: -.5rem; left: 1rem; line-height: 1;
+  }
+  .temo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.05rem; line-height: 1.65;
+    color: var(--brown-deep); margin-bottom: 1.5rem;
+  }
+  .temo-author { display: flex; align-items: center; gap: .75rem; }
+  .temo-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--brown-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--gold);
+    flex-shrink: 0;
+  }
+  .temo-name { font-weight: 600; font-size: .875rem; color: var(--brown-deep); }
+  .temo-role { font-size: .75rem; color: #8B5A3A; }
+
+  /* ─── CTA FINAL ─────────────────────────────────────────────── */
+  #cta-final {
+    background: var(--brown-deep);
+    padding: 120px 5%;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #cta-final .hero-texture { opacity: .06; }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 900; color: var(--cream);
+    line-height: 1.15; margin-bottom: 1rem;
+    position: relative; z-index: 1;
+  }
+  .cta-title em { color: var(--gold); font-style: italic; }
+  .cta-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.2rem;
+    color: rgba(250,246,240,.5); margin-bottom: 2.5rem;
+    position: relative; z-index: 1;
+  }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+  .cta-contact {
+    margin-top: 3rem; position: relative; z-index: 1;
+    display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
+  }
+  .contact-item { text-align: center; }
+  .contact-label { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: .25rem; }
+  .contact-value { font-size: 1rem; color: rgba(250,246,240,.7); }
+
+  /* ─── FOOTER ────────────────────────────────────────────────── */
+  footer {
+    background: var(--black);
+    padding: 3rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+    border-top: 1px solid rgba(200,150,12,.12);
+  }
+  .footer-left { display: flex; align-items: center; gap: 1rem; }
+  .footer-left img { height: 36px; filter: brightness(0) invert(1); opacity: .5; }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem; color: rgba(250,246,240,.4);
+  }
+  .footer-motto {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: .8rem;
+    color: rgba(250,246,240,.25); letter-spacing: .05em;
+  }
+  .footer-right { font-size: .75rem; color: rgba(250,246,240,.2); }
+
+  /* ─── SCROLL ANIMATIONS ─────────────────────────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .intro-grid, .silver-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .tarifs-grid { grid-template-columns: 1fr 1fr; }
+    .agenda-days { grid-template-columns: 1fr 1fr; }
+    .temos-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .tarifs-grid { grid-template-columns: 1fr; }
+    .agenda-days { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="logo_ayoolys.png" alt="Ayooly's Center">
+    <div class="nav-brand">
+      Ayooly's Center
+      <span>Porto-Novo · Bénin</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#intro">Qui sommes-nous</a></li>
+    <li><a href="#activites">Activités</a></li>
+    <li><a href="#silver">Silver Academy</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#cta-final" class="nav-cta">Nous rejoindre</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-texture"></div>
+
+  <div class="hero-logo-wrap reveal">
+    <img src="logo_ayoolys.png" alt="Ayooly's Center Logo">
+  </div>
+
+  <p class="hero-eyebrow reveal">Porto-Novo · Bénin · Tiers-Lieu Intergénérationnel</p>
+
+  <h1 class="hero-title reveal">
+    Là où chaque<br><em>génération</em><br>trouve sa place.
+  </h1>
+
+  <p class="hero-sub reveal">
+    Savoir pour mieux se positionner — Fabricando fit faber
+  </p>
+
+  <div class="hero-btns reveal">
+    <a href="#activites" class="btn-primary">Découvrir le Hub</a>
+    <a href="#tarifs" class="btn-outline">Voir les tarifs</a>
+  </div>
+
+  <div class="hero-stats reveal">
+    <div class="stat">
+      <span class="stat-num">300+</span>
+      <span class="stat-label">Bénéficiaires / an</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Publics accueillis</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">15k</span>
+      <span class="stat-label">FCFA / atelier</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Autonome</span>
+    </div>
+  </div>
+
+  <div class="hero-bottom-bar">Retraités · Étudiants · Actifs · Entrepreneurs</div>
+</section>
+
+<div class="african-divider"></div>
+
+<!-- ── INTRO ─────────────────────────────────────────────────────── -->
+<section id="intro">
+  <div class="intro-grid">
+    <div class="reveal">
+      <p class="section-label">Notre identité</p>
+      <h2 class="section-title">Un espace où l'expérience<br><em>rencontre</em> l'ambition.</h2>
+      <p class="section-body">
+        Ayooly's Center est un hub intergénérationnel implanté au cœur de Porto-Novo.
+        Retraités, étudiants, lycéens, actifs et porteurs de projet s'y retrouvent
+        pour apprendre, transmettre et construire ensemble.
+      </p>
+      <p class="section-body">
+        Notre modèle est simple et puissant: les seniors ne sont pas des bénéficiaires
+        passifs — ils sont les <strong>formateurs, mentors et moteurs</strong> du Hub.
+        Leur expérience est notre ressource la plus précieuse.
+      </p>
+      <a href="#silver" class="btn-primary">Découvrir la Silver Academy →</a>
+    </div>
+
+    <div class="reveal">
+      <div class="motto-card" style="margin-bottom:1.5rem;">
+        <p class="motto-text">
+          "Je rêvais d'un local qui réunirait toutes les générations, où chacun
+          peut s'autoriser à limer sa cervelle contre celle des autres et en
+          retirer quelque chose pour soi."
+        </p>
+        <p class="motto-author">— Fondateur, Ayooly's Center</p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">🤝</div>
+          <div>
+            <p class="pillar-title">Lien intergénérationnel</p>
+            <p class="pillar-desc">Retraités et jeunes évoluent ensemble, s'enrichissent mutuellement, brisent l'isolement.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">💻</div>
+          <div>
+            <p class="pillar-title">Tech accessible à tous</p>
+            <p class="pillar-desc">Alphabétisation numérique, Suite Office, PowerBI — au rythme de chacun.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌍</div>
+          <div>
+            <p class="pillar-title">Ancrage africain</p>
+            <p class="pillar-desc">Formations en langues vernaculaires, respect des réalités locales, impact communautaire direct.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="african-divider"></div>
+
+<!-- ── ACTIVITÉS ──────────────────────────────────────────────────── -->
+<section id="activites">
+  <div class="hero-texture"></div>
+  <div class="section-header">
+    <div>
+      <p class="section-label">Ce que nous proposons</p>
+      <h2 class="section-title">Nos <em>activités</em></h2>
+    </div>
+    <a href="#tarifs" class="btn-outline">Voir tous les tarifs</a>
+  </div>
+
+  <div class="cards-grid">
+    <div class="act-card reveal">
+      <span class="act-num">01</span>
+      <span class="act-icon">🔍</span>
+      <h3 class="act-title">Atelier Découverte</h3>
+      <p class="act-desc">2 heures pour toucher du doigt un domaine: trajectoire pro, création de site web, Suite Office, Design Thinking, PowerBI.</p>
+      <p class="act-price">15 000 FCFA · 12 places max</p>
+    </div>
+    <div class="act-card reveal">
+      <span class="act-num">02</span>
+      <span class="act-icon">📈</span>
+      <h3 class="act-title">Atelier Approfondissement</h3>
+      <p class="act-desc">8 heures en 4 séances pour maîtriser une compétence précise: Excel avancé, WordPress, Marketing digital, Gestion de projet.</p>
+      <p class="act-price">20 000 FCFA · 10 places max</p>
+    </div>
+    <div class="act-card reveal">
+      <span class="act-num">03</span>
+      <span class="act-icon">🎯</span>
+      <h3 class="act-title">Parcours Passerelles</h3>
+      <p class="act-desc">12 semaines pour les déscolarisés: remise à niveau, orientation métiers, certification. Paiement échelonné possible.</p>
+      <p class="act-price">60 000 FCFA · Cohortes de 15</p>
+    </div>
+    <div class="act-card reveal">
+      <span class="act-num">04</span>
+      <span class="act-icon">📱</span>
+      <h3 class="act-title">Alphabétisation Numérique</h3>
+      <p class="act-desc">6 semaines pour maîtriser smartphone, Mobile Money, e-services. Animé par des retraités bienveillants, en langue locale.</p>
+      <p class="act-price">15 000 FCFA · 8 places max</p>
+    </div>
+    <div class="act-card reveal">
+      <span class="act-num">05</span>
+      <span class="act-icon">💼</span>
+      <h3 class="act-title">Coworking & Abonnement</h3>
+      <p class="act-desc">Espace de travail connecté (fibre 10Mbps), 10 postes, salle de réunion. Carte membre avec accès illimité.</p>
+      <p class="act-price">15 000 FCFA/mois · 12 000 étudiant</p>
+    </div>
+    <div class="act-card reveal">
+      <span class="act-num">06</span>
+      <span class="act-icon">🏢</span>
+      <h3 class="act-title">Formation Corporate B2B</h3>
+      <p class="act-desc">Formations sur-mesure pour entreprises, administrations et ONG. Suite Office, Management, Communication professionnelle.</p>
+      <p class="act-price">200 000 – 500 000 FCFA / groupe</p>
+    </div>
+  </div>
+</section>
+
+<div class="african-divider" style="transform:scaleX(-1);"></div>
+
+<!-- ── SILVER ACADEMY ──────────────────────────────────────────────── -->
+<section id="silver">
+  <div class="silver-wrap">
+    <div class="reveal">
+      <div class="silver-visual">
+        <p class="silver-headline">Silver<br>Academy</p>
+        <p class="silver-sub">Le programme formateurs retraités</p>
+        <div class="silver-divider"></div>
+        <p class="silver-quote">
+          "Votre expérience de 40 ans vaut de l'or. Nous vous donnons la scène pour la transmettre — et être rémunéré pour cela."
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p class="section-label">Silver Academy</p>
+      <h2 class="section-title">Les retraités sont nos<br><em>meilleurs formateurs.</em></h2>
+      <p class="section-body">
+        La Silver Academy transforme l'expérience accumulée des retraités en
+        valeur économique concrète. En 4 séances de 2 heures, tout retraité
+        passionné devient formateur certifié Ayooly's — et commence à générer
+        des revenus complémentaires.
+      </p>
+
+      <div class="silver-steps">
+        <div class="step">
+          <div class="step-badge">①</div>
+          <div class="step-body">
+            <p class="step-title">Formation pédagogique (4 séances)</p>
+            <p class="step-desc">Andragogie, animation d'atelier pratique, gestion de groupe hétérogène. Coût: 20 000 FCFA.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">②</div>
+          <div class="step-body">
+            <p class="step-title">Certification "Formateur Ayooly's"</p>
+            <p class="step-desc">Simulation complète devant pairs + évaluation. Certificat délivré si niveau validé.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">③</div>
+          <div class="step-body">
+            <p class="step-title">Animation d'ateliers rémunérée</p>
+            <p class="step-desc">Le retraité anime les ateliers sur son domaine d'expertise. Il reçoit 30% des revenus générés.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="earn-box">
+        <p class="earn-amount">108k</p>
+        <p class="earn-label">FCFA / mois estimés pour un retraité animant<br>2 ateliers Découverte (12 pers. × 15 000 FCFA × 30%)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="african-divider"></div>
+
+<!-- ── QUOTE ──────────────────────────────────────────────────────── -->
+<section id="quote-break">
+  <div class="hero-texture"></div>
+  <p class="big-quote reveal">
+    "Chez Ayooly's, <span>fabricando fit faber</span> —<br>
+    c'est en faisant qu'on devient capable.<br>
+    Chaque génération apprend des autres."
+  </p>
+  <p class="big-quote-attr reveal">— Devise du Hub · Porto-Novo, Bénin</p>
+</section>
+
+<div class="african-divider" style="transform:scaleX(-1);"></div>
+
+<!-- ── TARIFS ──────────────────────────────────────────────────────── -->
+<section id="tarifs">
+  <div class="tarifs-header">
+    <p class="section-label">Nos tarifs</p>
+    <h2 class="section-title">Accessibles à <em>toutes les bourses.</em></h2>
+  </div>
+
+  <div class="tarifs-grid">
+    <div class="tarif-card reveal">
+      <p class="tarif-name">Abonnement</p>
+      <p class="tarif-price">15 000</p>
+      <p class="tarif-unit">FCFA / mois · Tout public</p>
+      <div class="tarif-divider"></div>
+      <ul class="tarif-items">
+        <li>Accès Hub illimité</li>
+        <li>Connexion Internet fibre</li>
+        <li>Atelier Découverte inclus</li>
+        <li>Tarifs préférentiels formations</li>
+      </ul>
+      <p class="tarif-note">12 000 FCFA / mois pour les étudiants</p>
+    </div>
+
+    <div class="tarif-card featured reveal">
+      <span class="tarif-badge">Populaire</span>
+      <p class="tarif-name">Atelier Découverte</p>
+      <p class="tarif-price">15 000</p>
+      <p class="tarif-unit">FCFA · Session de 2h</p>
+      <div class="tarif-divider"></div>
+      <ul class="tarif-items">
+        <li>Thème au choix</li>
+        <li>12 participants max</li>
+        <li>Support de cours inclus</li>
+        <li>Attestation participation</li>
+      </ul>
+      <p class="tarif-note">Ouvert à tous, sans prérequis</p>
+    </div>
+
+    <div class="tarif-card reveal">
+      <p class="tarif-name">Approfondissement</p>
+      <p class="tarif-price">20 000</p>
+      <p class="tarif-unit">FCFA · 4 séances de 2h</p>
+      <div class="tarif-divider"></div>
+      <ul class="tarif-items">
+        <li>Excel, PowerBI, WordPress…</li>
+        <li>10 participants max</li>
+        <li>Exercices pratiques</li>
+        <li>Suivi individuel</li>
+      </ul>
+      <p class="tarif-note">Paiement en 2 fois possible</p>
+    </div>
+
+    <div class="tarif-card reveal">
+      <p class="tarif-name">Silver Academy</p>
+      <p class="tarif-price">20 000</p>
+      <p class="tarif-unit">FCFA · Programme complet</p>
+      <div class="tarif-divider"></div>
+      <ul class="tarif-items">
+        <li>4 séances de 2h</li>
+        <li>Certification formateur</li>
+        <li>Revenus 30% dès validation</li>
+        <li>5 retraités max / cohorte</li>
+      </ul>
+      <p class="tarif-note">Retour sur investissement en &lt; 1 mois</p>
+    </div>
+  </div>
+</section>
+
+<div class="african-divider"></div>
+
+<!-- ── AGENDA ──────────────────────────────────────────────────────── -->
+<section id="agenda">
+  <div class="agenda-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <p class="section-label" style="color:var(--gold-light);">Planning</p>
+        <h2 class="section-title" style="color:var(--cream);">Semaine <em style="color:var(--gold);">type</em></h2>
+      </div>
+      <p style="font-size:.8rem;color:rgba(250,246,240,.3);font-style:italic;">Ouvert Lun–Ven 8h–20h · Sam 8h–18h</p>
+    </div>
+
+    <div class="agenda-days reveal">
+      <div class="day-col">
+        <div class="day-head">Lundi</div>
+        <div class="day-slots">
+          <div class="slot type-coworking"><span class="slot-time">08h30</span><span class="slot-name">Coworking libre</span></div>
+          <div class="slot type-decouverte"><span class="slot-time">09h00</span><span class="slot-name">Atelier Trajectoire Pro</span><span class="slot-public">Actifs · Retraités</span></div>
+          <div class="slot type-alpha"><span class="slot-time">14h00</span><span class="slot-name">Alpha Numérique S1</span><span class="slot-public">Tous publics</span></div>
+          <div class="slot type-decouverte"><span class="slot-time">18h00</span><span class="slot-name">Atelier Office (soirée)</span><span class="slot-public">Actifs après travail</span></div>
+        </div>
+      </div>
+      <div class="day-col">
+        <div class="day-head">Mardi</div>
+        <div class="day-slots">
+          <div class="slot type-silver"><span class="slot-time">08h30</span><span class="slot-name">Silver Academy S1</span><span class="slot-public">Retraités formateurs</span></div>
+          <div class="slot type-approfondissement"><span class="slot-time">14h00</span><span class="slot-name">Excel Avancé S1/4</span><span class="slot-public">Actifs · Étudiants</span></div>
+          <div class="slot type-culture"><span class="slot-time">19h00</span><span class="slot-name">Café-Philo (1er mardi)</span><span class="slot-public">Tous · Entrée libre membres</span></div>
+        </div>
+      </div>
+      <div class="day-col">
+        <div class="day-head">Mercredi</div>
+        <div class="day-slots">
+          <div class="slot type-decouverte"><span class="slot-time">08h30</span><span class="slot-name">Créer son site web</span><span class="slot-public">Lycéens · Artisans</span></div>
+          <div class="slot type-alpha"><span class="slot-time">11h00</span><span class="slot-name">Alpha Langue Vernac.</span><span class="slot-public">Adultes peu scolarisés</span></div>
+          <div class="slot type-approfondissement"><span class="slot-time">14h00</span><span class="slot-name">Bootcamp Étudiants</span><span class="slot-public">Python · Design</span></div>
+          <div class="slot type-culture"><span class="slot-time">18h00</span><span class="slot-name">Forum Métiers (2e merc.)</span></div>
+        </div>
+      </div>
+      <div class="day-col">
+        <div class="day-head">Jeudi</div>
+        <div class="day-slots">
+          <div class="slot type-silver"><span class="slot-time">08h30</span><span class="slot-name">Silver Academy S2</span></div>
+          <div class="slot type-decouverte"><span class="slot-time">14h00</span><span class="slot-name">Atelier PowerBI</span><span class="slot-public">Actifs · Étudiants gestion</span></div>
+          <div class="slot type-alpha"><span class="slot-time">16h00</span><span class="slot-name">Alpha Numérique S2</span></div>
+          <div class="slot type-decouverte"><span class="slot-time">18h00</span><span class="slot-name">Communication Non-Violente</span></div>
+        </div>
+      </div>
+      <div class="day-col">
+        <div class="day-head">Vendredi</div>
+        <div class="day-slots">
+          <div class="slot type-decouverte"><span class="slot-time">08h30</span><span class="slot-name">Design Thinking</span><span class="slot-public">Porteurs de projet</span></div>
+          <div class="slot type-approfondissement"><span class="slot-time">14h00</span><span class="slot-name">Excel Avancé S2/4</span></div>
+          <div class="slot type-culture"><span class="slot-time">18h00</span><span class="slot-name">Projection-Débat</span><span class="slot-public">Gratuit membres</span></div>
+        </div>
+      </div>
+      <div class="day-col">
+        <div class="day-head">Samedi</div>
+        <div class="day-slots">
+          <div class="slot type-approfondissement"><span class="slot-time">08h30</span><span class="slot-name">Bootcamp Intense</span><span class="slot-public">Lycéens · Étudiants</span></div>
+          <div class="slot type-silver"><span class="slot-time">12h00</span><span class="slot-name">Silver Practice</span><span class="slot-public">Simulation formateurs</span></div>
+          <div class="slot type-alpha"><span class="slot-time">14h00</span><span class="slot-name">Alpha Langue Vernac. S2</span></div>
+          <div class="slot type-culture"><span class="slot-time">16h00</span><span class="slot-name">Espace Libre Communautaire</span><span class="slot-public">Jeux · Échanges · Gratuit</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="agenda-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#C8960C;"></div>Atelier Découverte</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8B4513;"></div>Approfondissement</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#5C8A3C;"></div>Alphabétisation</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#C0A060;"></div>Silver Academy</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#3C6A8A;"></div>Coworking</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8A3C6A;"></div>Culture & Loisirs</div>
+    </div>
+  </div>
+</section>
+
+<div class="african-divider" style="transform:scaleX(-1);"></div>
+
+<!-- ── TÉMOIGNAGES ────────────────────────────────────────────────── -->
+<section id="temoignages">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label">Ils témoignent</p>
+    <h2 class="section-title">La voix de notre <em>communauté</em></h2>
+  </div>
+
+  <div class="temos-grid">
+    <div class="temo reveal">
+      <p class="temo-text">
+        "À 63 ans, je pensais que mon expertise d'ingénieur était derrière moi.
+        Ayooly's m'a donné une salle, des apprenants et 30% de chaque atelier.
+        Je gagne plus qu'une prime de retraite."
+      </p>
+      <div class="temo-author">
+        <div class="temo-avatar">A</div>
+        <div>
+          <p class="temo-name">Anatole K.</p>
+          <p class="temo-role">Retraité · Formateur PowerBI certifié Ayooly's</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="temo reveal">
+      <p class="temo-text">
+        "J'ai appris à envoyer de l'argent avec mon téléphone. Pour moi qui ne savais
+        pas lire, c'est une révolution. Et le formateur parlait en fon — enfin quelqu'un
+        qui comprend ma réalité."
+      </p>
+      <div class="temo-author">
+        <div class="temo-avatar">F</div>
+        <div>
+          <p class="temo-name">Félicité M.</p>
+          <p class="temo-role">Commerçante · Programme Alpha Numérique</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="temo reveal">
+      <p class="temo-text">
+        "Pendant les vacances, j'ai fait le bootcamp Python et créé mon premier site web.
+        Deux mois après, j'ai décroché un stage. Ayooly's m'a mis deux ans d'avance
+        sur mes camarades de fac."
+      </p>
+      <div class="temo-author">
+        <div class="temo-avatar">E</div>
+        <div>
+          <p class="temo-name">Evariste D.</p>
+          <p class="temo-role">Étudiant L2 Informatique · UAC Porto-Novo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="african-divider"></div>
+
+<!-- ── CTA FINAL ──────────────────────────────────────────────────── -->
+<section id="cta-final">
+  <div class="hero-texture"></div>
+  <h2 class="cta-title reveal">
+    Rejoignez le Hub.<br>
+    <em>Porto-Novo vous attend.</em>
+  </h2>
+  <p class="cta-sub reveal">
+    Que vous ayez 18 ans ou 70 ans, votre place est ici.
+  </p>
+  <div class="cta-btns reveal">
+    <a href="#tarifs" class="btn-primary">S'abonner — 15 000 FCFA / mois</a>
+    <a href="#activites" class="btn-outline">Voir les ateliers</a>
+  </div>
+
+  <div class="cta-contact reveal">
+    <div class="contact-item">
+      <p class="contact-label">Adresse</p>
+      <p class="contact-value">Carré 891, Quartier Dowa, Porto-Novo</p>
+    </div>
+    <div class="contact-item">
+      <p class="contact-label">WhatsApp</p>
+      <p class="contact-value">+229 XX XX XX XX</p>
+    </div>
+    <div class="contact-item">
+      <p class="contact-label">Horaires</p>
+      <p class="contact-value">Lun – Ven 8h–20h · Sam 8h–18h</p>
+    </div>
+    <div class="contact-item">
+      <p class="contact-label">Email</p>
+      <p class="contact-value">contact@ayoolyscenter.bj</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-left">
+    <img src="logo_ayoolys.png" alt="Ayooly's">
+    <div>
+      <p class="footer-brand">Ayooly's Center</p>
+      <p class="footer-motto">Savoir pour mieux se positionner</p>
+    </div>
+  </div>
+  <p class="footer-right">© 2026 Ayooly's Center · Wellness Center · Porto-Novo, Bénin</p>
+</footer>
+
+<!-- ── SCROLL REVEAL SCRIPT ──────────────────────────────────────── -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(13, 6, 4, 0.98)'
+      : 'rgba(30, 10, 2, 0.96)';
+  });
+</script>
+</body>
+</html>
